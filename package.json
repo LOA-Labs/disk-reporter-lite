@@ -1,0 +1,27 @@
+{
+    "name": "disk-reporter-lite",
+    "version": "0.0.1",
+    "main": "src/index.ts",
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf dist/",
+        "copy-files": "copyfiles -u 1 src/configs/*.json dist/",
+        "start": "NODE_ENV=production node ./dist/index.js",
+        "start-ts-old": "NODE_ENV=production node -r ts-node/register ./src/index.ts",
+        "build": "npm run clean && tsc --allowSyntheticDefaultImports src/*.ts --outDir ./dist && npm run copy-files"
+    },
+    "devDependencies": {
+        "@types/node": "^14.11.2",
+        "nodemon": "^2.0.4",
+        "ts-node": "^9.0.0",
+        "typescript": "^4.0.3"
+    },
+    "dependencies": {
+        "check-disk-space": "^3.3.1",
+        "copyfiles": "^2.4.1",
+        "express": "^4.18.2",
+        "rimraf": "^3.0.2",
+        "twitter-api-v2": "^1.12.8",
+        "uuid": "^8.3.2"
+    }
+}
